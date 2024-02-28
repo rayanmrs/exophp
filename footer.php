@@ -7,10 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="logo">
-        <h1>Actualité</h1>
-        <a class="bouton" href="contact.php">Contact</a>
-    </header>
+    <footer>
+        <a href="#"><h1>Mentions légales</h1></a>
+    </footer>
 </body>
 </html>

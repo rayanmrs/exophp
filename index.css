@@ -3,6 +3,10 @@ body{
     background-size: cover;
 }
 
+body a{
+    text-decoration: none;
+}
+
 header{
     background: rgba(0, 0, 0, 0.7);
     margin: 30px;
@@ -25,16 +29,79 @@ header h1{
     grid-column: 2;
 }
 
-header button{
+header a{
+    border: 1px solid black;
+    text-align: center;
+    padding: 20px;
     border-radius: 10px;
     background-color: white;
+    color: black;
     width: 100px;
-    height: 50px;
     margin-left: 350px;
     margin-top: 20px;
 }
 
-header button:hover{
+header a:hover{
     transition: 0.5s;
     background-color: blue;
+    color: white;
+}
+
+#formulaire{
+    width: 800px;
+    height: auto; 
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 20px; 
+    background-color: rgb(89, 88, 88);
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+input[type="text"],
+button {
+    width: 100%; 
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.article{
+    width: 800px;
+    height: 300px;
+    background-color: rgb(89, 88, 88);
+    margin: 0 auto;
+    border-radius: 15px;
+    margin-bottom: 50px;
+}
+
+.article h1{
+    text-align: center;
+    color: white;
+    padding-top: 30px;
+}
+
+.article p{
+    margin-left: 20px;
+    color: white;
+}
+
+footer{
+    background: rgba(0, 0, 0, 0.7);
+    margin: 30px;
+    padding: 30px;
+    border-radius: 10px;
+    height: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+footer a{
+    grid-column: 2;
+    margin: 0 auto;
+    color: white;
 }
