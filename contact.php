@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(":nom", $nom, PDO::PARAM_STR);
         $stmt->bindParam(":mail", $mail, PDO::PARAM_STR);
         $stmt->execute();
+        header('Location:index.php');
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
         exit();
