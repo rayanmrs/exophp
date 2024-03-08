@@ -5,29 +5,27 @@ $user = 'root';
 $pass = '';
 $port = '3306';
 $charset = 'utf8mb4';
+require_once 'class_contact.php';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
 $pdo = new PDO($dsn, $user, $pass);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $mail = $_POST['mail'];
 
-    $sql = 'INSERT INTO contact (nom,prenom,mail) VALUES (:nom,:prenom,:mail)';
-    try {
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(":prenom", $prenom, PDO::PARAM_STR);
-        $stmt->bindParam(":nom", $nom, PDO::PARAM_STR);
-        $stmt->bindParam(":mail", $mail, PDO::PARAM_STR);
-        $stmt->execute();
-        header('Location:index.php');
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-        exit();
-    }
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
     
+    $values = array(
+        'nom' => $_POST['nom'],
+        'prenom' => $_POST['prenom'],
+        'mail' => $_POST['mail'],
+    );
+    $contact = new contact($values);
+    $contact->sendcontact($contact);
+
 }
+
 ?>
 
 
@@ -41,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="logo">
+        <img src="img/logo.png" alt="logo">
         <h1>Actualité</h1>
         <a class="bouton" href="index.php">Accueil</a>
     </header>

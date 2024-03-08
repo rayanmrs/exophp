@@ -6,13 +6,15 @@ $user = 'root';
 $pass = '';
 $port = '3306';
 $charset = 'utf8mb4';
+require_once 'class_actu.php';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
 $pdo = new PDO($dsn, $user, $pass);
 
-$sql='SELECT * FROM article ORDER BY id_article LIMIT 5 ';
-$temp=$pdo->prepare($sql);
+$sql = 'SELECT * FROM article ORDER BY id_article LIMIT 5';
+$temp = $pdo->prepare($sql);
 $temp->execute();
+$results = $temp->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -22,25 +24,25 @@ $temp->execute();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>Document</title>
+    <title>Liste d'articles</title>
 </head>
 <body>
     
     <?php
     include("header.php");
 
-    while ($resultat = $temp->fetch()){
-        echo '<a href="article1.php"><div class="article">' ;
-        echo '<h1>' . $resultat['titre'] . '</h1>' ;
-        echo '<p>Date de publication :  ' . $resultat['date_publication'] . '</p>' ;
-        echo '<p>Date de révision :  ' . $resultat['date_revision'] . '</p>' ;
-        echo '<p>Auteur :  ' . $resultat['auteur'] . '</p>' ;
-        echo '<p>Tags :  ' . $resultat['tags'] . '</p>' ;
-        echo '<p>Sources :  ' . $resultat['sources'] . '</p>' ;
-
-            
-        echo '</div></a>';
+    foreach ($results as $row) {
+        $actu = new Actualite($row);
+        echo '<a href="article1.php"><div class="article">
+            <h1>' . $actu->titre . '</h1>
+            <p>Date de publication :  ' . $actu->date_publication . '</p>
+            <p>Date de révision :  ' . $actu->date_revision . '</p>
+            <p>Auteur :  ' . $actu->auteur . '</p>
+            <p>Tags :  ' . $actu->tags . '</p>
+            <p>Sources :  ' . $actu->sources . '</p>
+        </div></a>';
     }
+
     ?>
 
     <?php

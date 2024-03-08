@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="logo">
+        <img src="img/logo.png" alt="logo">
         <h1>Actualité</h1>
         <a class="bouton" href="contact.php">Contact</a>
     </header>
