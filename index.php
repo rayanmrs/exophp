@@ -1,12 +1,15 @@
 <?php
 
+// Inclusion des fichiers de classe
+require_once 'class_actu.php';
+require_once 'class_base_donnee.php';
+
 $host = '127.0.0.1';
 $db = 'actu';
 $user = 'root';
 $pass = '';
 $port = '3306';
 $charset = 'utf8mb4';
-require_once 'class_actu.php';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
 $pdo = new PDO($dsn, $user, $pass);
@@ -31,18 +34,7 @@ $results = $temp->fetchAll(PDO::FETCH_ASSOC);
     <?php
     include("header.php");
 
-    foreach ($results as $row) {
-        $actu = new Actualite($row);
-        echo '<a href="article1.php"><div class="article">
-            <h1>' . $actu->titre . '</h1>
-            <p>Date de publication :  ' . $actu->date_publication . '</p>
-            <p>Date de révision :  ' . $actu->date_revision . '</p>
-            <p>Auteur :  ' . $actu->auteur . '</p>
-            <p>Tags :  ' . $actu->tags . '</p>
-            <p>Sources :  ' . $actu->sources . '</p>
-        </div></a>';
-    }
-
+    Actualite::actu($results);
     ?>
 
     <?php
