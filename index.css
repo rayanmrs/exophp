@@ -7,29 +7,41 @@ body a{
     text-decoration: none;
 }
 
-header{
+header {
     background: rgba(0, 0, 0, 0.7);
     margin: 30px;
     padding: 30px;
     border-radius: 10px;
-    height: 80px;
+    height: auto; /* Ajustement de la hauteur automatique */
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr; /* Utilisation de la largeur automatique pour le logo et le titre */
+    align-items: center; /* Alignement vertical des éléments au centre */
 }
 
-header img{
+header select {
+    width: 200px; /* Largeur des select */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-right: 20px;
+    grid-column: 2; /* Ajout de marge à droite pour l'espace entre le select et le titre */
+}
+
+header img {
     width: 200px;
     margin-top: 10px;
     grid-column: 1;
 }
 
-header h1{
-    margin: 0 auto;
+header h1 {
+    margin: 0; /* Suppression de la marge */
     color: white;
     grid-column: 2;
 }
 
-header a{
+header a {
     border: 1px solid black;
     text-align: center;
     padding: 20px;
@@ -37,8 +49,8 @@ header a{
     background-color: white;
     color: black;
     width: 100px;
-    margin-left: 350px;
     margin-top: 20px;
+    grid-column: 3;
 }
 
 header a:hover{
