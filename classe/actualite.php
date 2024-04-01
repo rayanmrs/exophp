@@ -35,10 +35,8 @@ class Actualite extends base_donnee {
         foreach ($results as $row) {
             $actu = new Actualite($row);
             $actus[] = $actu;
-    
-            // Récupérer l'image à partir de la colonne BLOB de la base de données
             $imageData = $row['image'];
-            $imageSrc = 'data:image/jpeg;base64,' . base64_encode($imageData); // Encodage en base64
+            $imageSrc = 'data:image/jpeg;base64,' . base64_encode($imageData);
     
             echo '<a href="article1.php"><div class="article">
             <h1>' . $actu->titre . '</h1>

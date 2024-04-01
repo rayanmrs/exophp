@@ -37,6 +37,7 @@ class Admin extends base_donnee implements AdminInterface {
         }
     
         echo '</table>';
+        echo '<button onclick="window.location.href=\'index.php\'">Accueil</button>';
     }
 
 
