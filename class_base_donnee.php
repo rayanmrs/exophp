@@ -7,9 +7,11 @@ class base_donnee{
         return $pdo;
     }
 
-    public static function ajout($sql){
-        $pdo = base_donnee::pdo();
-        $stmt=$pdo->prepare($sql);
-        return $stmt;
+    public static function affiche(){
+        $sql = 'SELECT * FROM article ORDER BY id_article LIMIT 5';
+        $temp = base_donnee::pdo()->prepare($sql);
+        $temp->execute();
+        $results = $temp->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
     }
 }

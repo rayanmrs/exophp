@@ -4,20 +4,7 @@
 require_once 'class_actu.php';
 require_once 'class_base_donnee.php';
 
-$host = '127.0.0.1';
-$db = 'actu';
-$user = 'root';
-$pass = '';
-$port = '3306';
-$charset = 'utf8mb4';
-
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
-$pdo = new PDO($dsn, $user, $pass);
-
-$sql = 'SELECT * FROM article ORDER BY id_article LIMIT 5';
-$temp = $pdo->prepare($sql);
-$temp->execute();
-$results = $temp->fetchAll(PDO::FETCH_ASSOC);
+$affiche = base_donnee::affiche();
 
 ?>
 
@@ -34,7 +21,7 @@ $results = $temp->fetchAll(PDO::FETCH_ASSOC);
     <?php
     include("header.php");
 
-    Actualite::actu($results);
+    Actualite::actu($affiche);
     ?>
 
     <?php

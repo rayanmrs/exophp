@@ -1,21 +1,8 @@
 <?php
-$host = '127.0.0.1';
-$db = 'actu';
-$user = 'root';
-$pass = '';
-$port = '3306';
-$charset = 'utf8mb4';
-require_once 'class_contact.php';
-
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
-$pdo = new PDO($dsn, $user, $pass);
-
-
-
+require_once('class_base_donnee.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
-    
     $values = array(
         'nom' => $_POST['nom'],
         'prenom' => $_POST['prenom'],
