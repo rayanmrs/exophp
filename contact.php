@@ -1,5 +1,6 @@
 <?php
-require_once('class_base_donnee.php');
+require_once('classe/base_donnee.php');
+require_once('classe/contact.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
@@ -25,11 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <img src="img/logo.png" alt="logo">
-        <h1>Actualité</h1>
-        <a class="bouton" href="index.php">Accueil</a>
-    </header>
+    <?php
+    require_once('header.php');
+    ?>
     <div id="formulaire">
         <form action="contact.php" method="post">
             <label for="nom">Nom</label>

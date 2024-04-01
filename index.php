@@ -1,10 +1,10 @@
 <?php
 
 // Inclusion des fichiers de classe
-require_once 'class_actu.php';
-require_once 'class_base_donnee.php';
+require_once 'classe/actualite.php';
+require_once 'classe/base_donnee.php';
 
-$affiche = base_donnee::affiche();
+$affiche = actualite::affiche();
 
 ?>
 

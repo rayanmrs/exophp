@@ -1,11 +1,11 @@
 <?php
-require_once('class_base_donnee.php');
-require_once('class_admin.php');
+require_once('classe/base_donnee.php');
+require_once('classe/admin.php');
 if(isset($_POST['ajouter'])) {
     $nom = $_POST['nom'];
     $categorie_id = $_POST['categorie_id'];
 
-    Admin::ajout_categories($nom, $categorie_id);
+    Admin::ajoutCategories($nom, $categorie_id);
 }
 $categories = Admin::getCategories();
 ?>

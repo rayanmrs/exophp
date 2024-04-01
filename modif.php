@@ -1,16 +1,15 @@
 <?php
-require_once('class_base_donnee.php');
-require_once('class_admin.php');
+require_once('classe/base_donnee.php');
+require_once('classe/admin.php');
 
-// Si le formulaire est soumis et que le bouton "modifier" est cliqué
+
 if(isset($_POST['modifier'])) {
     $nom = $_POST['nom'];
     $id = $_POST['id'];
     $categories_id = $_POST['categorie_id'];
-    Admin::UpdateCategories($nom, $categories_id, $id); // Appel à la méthode getCategoriesName avec les bonnes valeurs
+    Admin::UpdateCategories($nom, $categories_id, $id); 
 }
 
-// Récupération de la liste des catégories
 $categories = Admin::getCategories();
 ?>
 
@@ -27,10 +26,10 @@ $categories = Admin::getCategories();
         <label for="nom">Nom</label>
         <input type="text" name="nom" id="nom" value="" required />
         
-        <label for="id">Id</label>
+        <label for="id">Entrer l'id de l'élément que vous voulez modifier</label>
         <input type="number" name="id" id="id" placeholder="Id" required />
 
-        <label for="categorie_id">CatégorieId</label>
+        <label for="categorie_id">Entrer l'id de sa catégorie</label>
         <input type="number" name="categorie_id" id="categorie_id" placeholder="CatégorieId" required />
 
         <input type="submit" name="modifier" value="modifier" />

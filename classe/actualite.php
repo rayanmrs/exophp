@@ -1,5 +1,5 @@
 <?php
-require_once('class_base_donnee.php');
+require_once('classe/base_donnee.php');
 
 class Actualite extends base_donnee {
     
@@ -19,6 +19,14 @@ class Actualite extends base_donnee {
         $this->tags = $values['tags'];
         $this->sources = $values['sources'];
         $this->image = $values['image'];
+    }
+
+    public static function affiche(){
+        $sql = 'SELECT * FROM article ORDER BY id_article LIMIT 5';
+        $temp = base_donnee::pdo()->prepare($sql);
+        $temp->execute();
+        $results = $temp->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
     }
 
     public static function actu($results) {
@@ -44,5 +52,7 @@ class Actualite extends base_donnee {
         }
         return $actus;
     }
+
+    
     
 }

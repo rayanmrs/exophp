@@ -12,10 +12,10 @@ header {
     margin: 30px;
     padding: 30px;
     border-radius: 10px;
-    height: auto; /* Ajustement de la hauteur automatique */
+    height: auto; 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Utilisation de la largeur automatique pour le logo et le titre */
-    align-items: center; /* Alignement vertical des éléments au centre */
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center; 
 }
 
 header select {
@@ -26,7 +26,7 @@ header select {
     border-radius: 5px;
     box-sizing: border-box;
     margin-right: 20px;
-    grid-column: 2; /* Ajout de marge à droite pour l'espace entre le select et le titre */
+    grid-column: 2; 
 }
 
 header img {
@@ -41,7 +41,7 @@ header h1 {
     grid-column: 2;
 }
 
-header a {
+.bouton {
     border: 1px solid black;
     text-align: center;
     padding: 20px;
@@ -53,7 +53,7 @@ header a {
     grid-column: 3;
 }
 
-header a:hover{
+.bouton:hover{
     transition: 0.5s;
     background-color: blue;
     color: white;
@@ -104,6 +104,10 @@ button {
 
 .img-article{
     width: 100px;
+}
+
+.tableau{
+    color: white;
 }
 
 footer{

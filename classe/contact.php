@@ -1,5 +1,5 @@
 <?php
-require_once('class_base_donnee.php');
+require_once('classe/base_donnee.php');
 
 class contact extends base_donnee{
     public $nom; 
@@ -15,14 +15,13 @@ class contact extends base_donnee{
     }
 
     public static function sendcontact($contact){
-        $sql = 'INSERT INTO contact (nom,prenom,mail) VALUES (:nom,:prenom,:mail)';
-        $stmt = base_donnee::ajout($sql);
+        $pdo = self::pdo();
+        $stmt = $pdo->prepare('INSERT INTO contact (nom, prenom, mail) VALUES (:nom, :prenom, :mail)');
         $stmt->bindParam(":nom", $contact->nom, PDO::PARAM_STR);
         $stmt->bindParam(":prenom", $contact->prenom, PDO::PARAM_STR);
         $stmt->bindParam(":mail", $contact->mail, PDO::PARAM_STR);
         $stmt->execute();
-        header("Location:index.php");
+        header("Location: index.php");
         exit();
-        
     }
 }
